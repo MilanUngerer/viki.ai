@@ -1,5 +1,6 @@
 import requests
 import datetime
+import json
 import numpy as np
 
 def meteo():
@@ -19,15 +20,11 @@ def meteo():
 	"apikey":"luwuHX2FBlIkFLZhfXWKHzu241dGc2RU"}
 
 	response = requests.request("GET", url, params=querystring)
-#print(response.text)
+#	print(response.text)
 
-	t = response.json()['data']['timelines'][0]['intervals'][0]['values']['temperature']
-	cc = response.json()['data']['timelines'][0]['intervals'][0]['values']['cloudCover']
-	airql = response.json()['data']['timelines'][0]['intervals'][0]['values']['epaIndex']
-
-
-#print("Weather Forecast")
-#print("================")
+#	t = response.json()['data']['timelines'][0]['intervals'][0]['values']['temperature']
+#	cc = response.json()['data']['timelines'][0]['intervals'][0]['values']['cloudCover']
+#	airql = response.json()['data']['timelines'][0]['intervals'][0]['values']['epaIndex']
 
 	results = response.json()['data']['timelines'][0]['intervals']
 #print(results)

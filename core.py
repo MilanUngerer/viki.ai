@@ -16,7 +16,7 @@ from sunpos import *
 #from DHT11 import *
 
 ##### DATOS THINGSBOARD ###########
-ACCESS_TOKEN='Pilotoaether'          #Token of your device
+ACCESS_TOKEN='Aether0255'          #Token of your device
 broker="thingsboard.cloud"           #host name
 port=1883                            #data listening port
 
@@ -62,14 +62,14 @@ while True:
 	######### PLATFORM PUBLICATION ###########################
 	payload="{"
 	payload+="\"Temp. interior\":"+str(temperatura)+",";
-	payload+="\"humedad interior'\":"+str(humedad)+",";
-	payload+="\"Temp. exterior'\":"+str(temp)+",";
-	payload+="\"Nubosidad'\":"+str(cloud)+",";
-	payload+="\"EPA index (calidad del aire)'\":"+str(epai)+",";
-	payload+="\"Azimuth'\":"+str(az)+",";
-	payload+="\"Elevacion'\":"+str(el)+",";
+	payload+="\"humedad interior\":"+str(humedad)+",";
+	payload+="\"Temp. exterior\":"+str(temp[0])+",";
+	payload+="\"Nubosidad\":"+str(cloud[0])+",";
+	payload+="\"EPA index (calidad del aire)\":"+str(epai[0])+",";
+	payload+="\"Azimuth\":"+str(az)+",";
+	payload+="\"Elevacion\":"+str(el);
 	payload+="}"
-	ret= client1.publish("v1/devices/me/telemetry",payload) #topic-v1/devices/me/telemetry
+	ret= client1.publish("v1/devices/me/telemetry", payload) #topic-v1/devices/me/telemetry
 	print("Please check LATEST TELEMETRY field of your device")
 
-	time.sleep(60) #900 seg = 15 minutos
+	time.sleep(120) #900 seg = 15 minutos
