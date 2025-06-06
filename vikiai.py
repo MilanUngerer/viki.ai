@@ -295,7 +295,7 @@ import statistics
 def norm(x):
     nf = x
     for i in range(len(x)):
-        nf[i,:]= x[i,:] - statistics.mean(x_train[i,:]) / statistics.stdev(x_train[i,:])
+        nf[i,:] = (x[i,:] - statistics.mean(x_train[i,:])) / statistics.stdev(x_train[i,:])
         #print(x[:,i])
 #    print(nf)
     return nf
